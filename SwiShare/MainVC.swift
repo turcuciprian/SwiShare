@@ -44,6 +44,18 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             
             // Move the message label and top bar to the front
             view.bringSubview(toFront: messageLabel)
+            
+            
+            // Initializing the green box
+            
+            qrCodeFrameView = UIView()
+            if let qrCodeFrameView  = qrCodeFrameView {
+                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                qrCodeFrameView.layer.borderWidth = 2
+                view.addSubview(qrCodeFrameView)
+                view.bringSubview(toFront: qrCodeFrameView)
+            }
+            
         } catch{
             print (error)
             return
@@ -53,6 +65,29 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+//        check if the metadata objects array is not nil and it contains at least one object
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            qrCodeFrameView?.frame = CGRect.zero
+            messageLabel.text = "No QR code detected"
+            return
+        }
+        
+        //get the metadata object
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObjectTypeQRCode {
+            //if foundmetadata is equal to QR code metadata then update status 1
+            let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = barcodeObject!.bounds
+            
+            if metadataObj.stringValue != nil{
+                messageLabel.text = metadataObj.stringValue
+            }
+        }
+        
+        
     }
 
 
