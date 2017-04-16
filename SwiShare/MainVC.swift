@@ -8,9 +8,9 @@
 
 import UIKit
 import AVFoundation
-//import FirebaseDatabase
-//
-//var xref = FIRDatabase.database().reference()
+import Firebase
+
+var xref = FIRDatabase.database().reference()
 
 class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -76,7 +76,11 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR code detected"
-//            print(xref.child("pass3").value(forKey: "SecretCode"))
+//            print(xref.child("pass3").child("SecretCode"))
+            
+            
+            
+            
             return
         }
         
@@ -89,7 +93,10 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barcodeObject!.bounds
             
             if metadataObj.stringValue != nil{
-                messageLabel.text = metadataObj.stringValue
+                var QRVal =  metadataObj.stringValue
+                messageLabel.text = QRVal
+                xref.child("pas3").setValue(["SecretCode": QRVal])
+                
             }
         }
         
