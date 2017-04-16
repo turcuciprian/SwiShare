@@ -88,9 +88,13 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barcodeObject!.bounds
             
             if metadataObj.stringValue != nil{
-                var QRVal =  metadataObj.stringValue
-                messageLabel.text = QRVal
-                xref.child("allShares").setValue(["SecretCode": QRVal])
+                var QRVal:String =  metadataObj.stringValue
+                let pasteboardString: String? = UIPasteboard.general.string
+                if let theString = pasteboardString {
+                    messageLabel.text = QRVal
+                    xref.child("allShares").setValue([QRVal: theString])
+                }
+                
                 
             }
         }
