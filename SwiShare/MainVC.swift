@@ -87,14 +87,13 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barcodeObject!.bounds
             
+            //get data from the clipboard
             if metadataObj.stringValue != nil{
                 var QRVal:String =  metadataObj.stringValue
-                let pasteboardString: String? = UIPasteboard.general.string
-                if let theString = pasteboardString {
-                    messageLabel.text = QRVal
-                    xref.child("allShares").setValue([QRVal: theString])
-                }
-                
+                let ssGlobal = ssGeneral()
+                let theString = ssGlobal.clipboardData(QRVal: QRVal)
+                messageLabel.text = QRVal
+                xref.child("allShares").setValue([QRVal: theString])
                 
             }
         }
