@@ -8,6 +8,9 @@
 
 import UIKit
 import AVFoundation
+//import FirebaseDatabase
+//
+//var xref = FIRDatabase.database().reference()
 
 class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -15,10 +18,12 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     
+    
     @IBOutlet weak var messageLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -71,6 +76,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR code detected"
+//            print(xref.child("pass3").value(forKey: "SecretCode"))
             return
         }
         
