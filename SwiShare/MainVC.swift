@@ -76,11 +76,6 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR code detected"
-//            print(xref.child("pass3").child("SecretCode"))
-            
-            
-            
-            
             return
         }
         
@@ -95,7 +90,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if metadataObj.stringValue != nil{
                 var QRVal =  metadataObj.stringValue
                 messageLabel.text = QRVal
-                xref.child("pas3").setValue(["SecretCode": QRVal])
+                xref.child("allShares").setValue(["SecretCode": QRVal])
                 
             }
         }

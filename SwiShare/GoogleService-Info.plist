@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>611368189488-lq4ok9pqvt5atpp4pbhugj5sjktq4bgc.apps.googleusercontent.com</string>
+	<string>433401920022-cufug2rq62nqla03jfi23juvgg3cbtlr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.611368189488-lq4ok9pqvt5atpp4pbhugj5sjktq4bgc</string>
+	<string>com.googleusercontent.apps.433401920022-cufug2rq62nqla03jfi23juvgg3cbtlr</string>
 	<key>API_KEY</key>
-	<string>AIzaSyASEku031SRa3WouStxxAAXS2lmBQLc1Wg</string>
+	<string>AIzaSyC_LVt4tj2k4TqjC_tK2opAFvfLdsFETxs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>611368189488</string>
+	<string>433401920022</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.teamtreehouse.SwiShare</string>
+	<string>com.toolaxyone.SwiShare</string>
 	<key>PROJECT_ID</key>
-	<string>pas3-9d568</string>
+	<string>swishare-ba9b9</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pas3-9d568.appspot.com</string>
+	<string>swishare-ba9b9.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:611368189488:ios:a4cc997602aabee7</string>
+	<string>1:433401920022:ios:06de12c77eb09058</string>
 	<key>DATABASE_URL</key>
-	<string>https://pas3-9d568.firebaseio.com</string>
+	<string>https://swishare-ba9b9.firebaseio.com</string>
 </dict>
 </plist>

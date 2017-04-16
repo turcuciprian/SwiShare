@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D4831CD1EA428C9009ED817 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D4831CC1EA428C9009ED817 /* GoogleService-Info.plist */; };
 		7D90746A1EA385B7009F8962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9074691EA385B7009F8962 /* AppDelegate.swift */; };
 		7D90746C1EA385B7009F8962 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D90746B1EA385B7009F8962 /* MainVC.swift */; };
 		7D90746F1EA385B7009F8962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D90746D1EA385B7009F8962 /* Main.storyboard */; };
 		7D9074711EA385B7009F8962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D9074701EA385B7009F8962 /* Assets.xcassets */; };
 		7D9074741EA385B7009F8962 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9074721EA385B7009F8962 /* LaunchScreen.storyboard */; };
-		7DB905481EA3DC220027F452 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB905471EA3DC220027F452 /* GoogleService-Info.plist */; };
 		8E50FD6E2275518B144E702C /* Pods_SwiShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534020084DA5AC645170F208 /* Pods_SwiShare.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		25E65DC78B048C94665737B9 /* Pods-SwiShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiShare/Pods-SwiShare.release.xcconfig"; sourceTree = "<group>"; };
 		534020084DA5AC645170F208 /* Pods_SwiShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D4831CC1EA428C9009ED817 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D9074661EA385B7009F8962 /* SwiShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9074691EA385B7009F8962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D90746B1EA385B7009F8962 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		7D9074701EA385B7009F8962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D9074731EA385B7009F8962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D9074751EA385B7009F8962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DB905471EA3DC220027F452 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A125A6F04BFF8B40EB9F8DFE /* Pods-SwiShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiShare/Pods-SwiShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,23 +71,15 @@
 		7D9074681EA385B7009F8962 /* SwiShare */ = {
 			isa = PBXGroup;
 			children = (
-				7DB905491EA3E2BA0027F452 /* Services */,
 				7D9074691EA385B7009F8962 /* AppDelegate.swift */,
 				7D90746B1EA385B7009F8962 /* MainVC.swift */,
 				7D90746D1EA385B7009F8962 /* Main.storyboard */,
 				7D9074701EA385B7009F8962 /* Assets.xcassets */,
 				7D9074721EA385B7009F8962 /* LaunchScreen.storyboard */,
 				7D9074751EA385B7009F8962 /* Info.plist */,
-				7DB905471EA3DC220027F452 /* GoogleService-Info.plist */,
+				7D4831CC1EA428C9009ED817 /* GoogleService-Info.plist */,
 			);
 			path = SwiShare;
-			sourceTree = "<group>";
-		};
-		7DB905491EA3E2BA0027F452 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Services;
 			sourceTree = "<group>";
 		};
 		A69A724F1DE9F3770CCE06D5 /* Pods */ = {
@@ -163,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D9074741EA385B7009F8962 /* LaunchScreen.storyboard in Resources */,
-				7DB905481EA3DC220027F452 /* GoogleService-Info.plist in Resources */,
+				7D4831CD1EA428C9009ED817 /* GoogleService-Info.plist in Resources */,
 				7D9074711EA385B7009F8962 /* Assets.xcassets in Resources */,
 				7D90746F1EA385B7009F8962 /* Main.storyboard in Resources */,
 			);
