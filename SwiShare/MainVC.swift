@@ -28,6 +28,17 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             captureSession = AVCaptureSession()
             
             captureSession?.addInput(input)
+            
+            let captureMetadataOutput = AVCaptureMetadataOutput()
+            captureSession?.addOutput(captureMetadataOutput)
+            
+            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+            
+            
+        } catch{
+            print (error)
+            return
         }
     }
 
