@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,47 +35,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-dc-2Bt">
-                                <rect key="frame" x="94" y="288" width="187" height="91"/>
-                                <subviews>
-                                    <stackView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGZ-Ow-emG">
-                                        <rect key="frame" x="19.5" y="21.5" width="148" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="797-sI-8QH">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="cMi-ro-DT3">
-                                                <rect key="frame" x="100" y="0.0" width="48" height="48"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="LGZ-Ow-emG" firstAttribute="centerY" secondItem="pIZ-dc-2Bt" secondAttribute="centerY" id="98H-r2-AdG"/>
-                                    <constraint firstItem="LGZ-Ow-emG" firstAttribute="centerX" secondItem="pIZ-dc-2Bt" secondAttribute="centerX" id="Qtn-Z8-1zw"/>
-                                </constraints>
-                            </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.55082837979999999" green="0.55904355439999998" blue="0.55924809639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xs3-h3-qxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4zj-z0-9nL"/>
-                            <constraint firstItem="pIZ-dc-2Bt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="268" id="C5u-53-9a0"/>
                             <constraint firstAttribute="trailing" secondItem="hXv-CC-ciV" secondAttribute="trailing" id="G1C-ql-ail"/>
                             <constraint firstItem="hXv-CC-ciV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pfp-9X-7VN"/>
-                            <constraint firstItem="pIZ-dc-2Bt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="78" id="Tp1-NK-Zeq"/>
                             <constraint firstAttribute="bottom" secondItem="hXv-CC-ciV" secondAttribute="bottom" id="Ugd-Xf-pCG"/>
-                            <constraint firstItem="pIZ-dc-2Bt" firstAttribute="centerX" secondItem="Xs3-h3-qxP" secondAttribute="centerX" id="Xxu-Bv-Z85"/>
-                            <constraint firstItem="pIZ-dc-2Bt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cl5-oF-Axt"/>
                             <constraint firstItem="hXv-CC-ciV" firstAttribute="top" secondItem="Xs3-h3-qxP" secondAttribute="bottom" constant="2" id="ffc-AP-Aqt"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gotoLabel" destination="Xs3-h3-qxP" id="ADZ-YL-4EN"/>
                         <outlet property="messageLabel" destination="hXv-CC-ciV" id="m6i-cV-A5e"/>
-                        <outlet property="sentView" destination="pIZ-dc-2Bt" id="Qaw-Ah-jOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -84,7 +55,4 @@
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="check" width="48" height="48"/>
-    </resources>
 </document>

@@ -21,7 +21,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var messageLabel: UILabel!
 
-    @IBOutlet weak var sentView: UIView?
+    @IBOutlet weak var gotoLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             
             // Move the message label and top bar to the front
             view.bringSubview(toFront: messageLabel)
+            view.bringSubview(toFront: gotoLabel)
             
             
             
@@ -98,7 +99,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                 let theString = ssGlobal.clipboardData(QRVal: QRVal)
 //                messageLabel.text = QRVal
                 xref.child(QRVal).setValue(["val": theString])
-                  view.bringSubview(toFront: sentView!)
+                
                 
             }
         }
