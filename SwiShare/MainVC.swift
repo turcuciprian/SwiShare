@@ -16,11 +16,13 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView: UIView?
+    var qrCodeFrameView: UIView!
     
     
     @IBOutlet weak var messageLabel: UILabel!
 
+    @IBOutlet weak var sentView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +53,8 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             view.bringSubview(toFront: messageLabel)
             
             
+            
+            
             // Initializing the green box
             
             qrCodeFrameView = UIView()
@@ -75,7 +79,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 //        check if the metadata objects array is not nil and it contains at least one object
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No QR code detected"
+//            messageLabel.text = "No QR code detected"
             return
         }
         
@@ -89,11 +93,12 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             
             //get data from the clipboard
             if metadataObj.stringValue != nil{
-                var QRVal:String =  metadataObj.stringValue
+                let QRVal:String =  metadataObj.stringValue
                 let ssGlobal = ssGeneral()
                 let theString = ssGlobal.clipboardData(QRVal: QRVal)
-                messageLabel.text = QRVal
-                xref.child("allShares").setValue([QRVal: theString])
+//                messageLabel.text = QRVal
+                xref.child(QRVal).setValue(["val": theString])
+                  view.bringSubview(toFront: sentView!)
                 
             }
         }
