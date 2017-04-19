@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiShare/MainVC.swift"
-            timestampString = "514236691.018208"
+            timestampString = "514294064.426065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "captureOutput(_:didOutputMetadataObjects:from:)"
             landmarkType = "7">
          </BreakpointContent>

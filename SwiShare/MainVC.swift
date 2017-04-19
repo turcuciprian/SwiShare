@@ -25,7 +25,32 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        QRCodeView()
+    }
+    //when changing orientation this function fires:
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("orientation changed")
         
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            // Your code here
+            self.videoPreviewLayer?.frame = self.view.layer.bounds
+        }
+        
+        
+    }
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //
+    //create the QR code view reader that opens the camera:
+    //
+    
+    func QRCodeView(){
         // Do any additional setup after loading the view, typically from a nib.
         
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -61,7 +86,7 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView = UIView()
             if let qrCodeFrameView  = qrCodeFrameView {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
+                qrCodeFrameView.layer.borderWidth = 8
                 view.addSubview(qrCodeFrameView)
                 view.bringSubview(toFront: qrCodeFrameView)
             }
@@ -70,12 +95,9 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             print (error)
             return
         }
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
 //        check if the metadata objects array is not nil and it contains at least one object
         if metadataObjects == nil || metadataObjects.count == 0 {
