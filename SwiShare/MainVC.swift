@@ -34,7 +34,18 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             // Your code here
-            self.videoPreviewLayer?.frame = self.view.layer.bounds
+            self.videoPreviewLayer = nil
+            
+            
+            
+            
+            
+            
+            
+            self.QRCodeView()
+            
+            
+            
         }
         
         
@@ -50,6 +61,52 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     //create the QR code view reader that opens the camera:
     //
     
+    private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
+        
+        layer.videoOrientation = orientation
+        
+        self.videoPreviewLayer?.frame = self.view.bounds
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let connection =  self.videoPreviewLayer?.connection  {
+            
+            let currentDevice: UIDevice = UIDevice.current
+            
+            let orientation: UIDeviceOrientation = currentDevice.orientation
+            
+            let previewLayerConnection : AVCaptureConnection = connection
+            
+            if previewLayerConnection.isVideoOrientationSupported {
+                
+                switch (orientation) {
+                case .portrait: updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+                
+                    break
+                    
+                case .landscapeRight: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
+                
+                    break
+                    
+                case .landscapeLeft: updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
+                
+                    break
+                    
+                case .portraitUpsideDown: updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
+                
+                    break
+                    
+                default: updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+                
+                    break
+                }
+            }
+        }
+    }
+
     func QRCodeView(){
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -58,25 +115,26 @@ class MainVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         do{
             let input = try AVCaptureDeviceInput(device: captureDevice)
             
-            captureSession = AVCaptureSession()
+            self.captureSession = AVCaptureSession()
             
-            captureSession?.addInput(input)
+            self.captureSession?.addInput(input)
             
             let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
+            self.captureSession?.addOutput(captureMetadataOutput)
             
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
             
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
+            self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            self.videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            
+            self.videoPreviewLayer?.frame = self.view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
             captureSession?.startRunning()
             
             // Move the message label and top bar to the front
-            view.bringSubview(toFront: messageLabel)
-            view.bringSubview(toFront: gotoLabel)
+            self.view.bringSubview(toFront: messageLabel)
+            self.view.bringSubview(toFront: gotoLabel)
             
             
             
